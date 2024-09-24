@@ -1,0 +1,19 @@
+# Definisi kelas Mahasiswa
+class Mahasiswa:
+    # Konstruktor kelas untuk inisialisasi objek
+    def _init_(self, nama, nim, kegiatan):
+        self.nama = nama
+        self.nim = nim
+        self.kegiatan = kegiatan
+
+    # Metode untuk menampilkan aktivitas belajar
+    def belajar(self):
+        print(f"{self.nama} sedang main skate.")
+
+# Implementasi penggunaan kelas Mahasiswa
+mahasiswa1 = Mahasiswa("epen", "123456", "main skate")
+mahasiswa2 = Mahasiswa("kiting", "654321", "main skate")
+
+# Menggunakan metode objek
+mahasiswa1.belajar()  # Output: epen sedang main skate.
+mahasiswa2.belajar()  # Output: kiting sedang main skate.
