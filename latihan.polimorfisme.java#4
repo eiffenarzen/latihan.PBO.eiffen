@@ -18,11 +18,19 @@ class pahlawan extends badut {
     }
 }
 
+class hts extends badut {
+    tampilkanPeran() {
+        console.log("Peran: Hubungan Tanpa Status");
+    }
+}
+
 // Menggunakan polimorfisme
 const badut1 = new badut();
 const selingkuhan1 = new selingkuhan();
 const pahlawan1 = new pahlawan();
+const hts1 = new hts();
 
 badut1.tampilkanPeran()
 selingkuhan1.tampilkanPeran();
 pahlawan1.tampilkanPeran();
+hts1.tampilkanPeran();
