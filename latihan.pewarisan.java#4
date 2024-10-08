@@ -1,27 +1,31 @@
 class Orang {
-    constructor(nama, alamat) {
+    constructor(nama, alamat, kelas) {
         this.nama = nama;
         this.alamat = alamat;
+        this.kelas = kelas;
     }
 
     tampilkanInformasi() {
-        console.log(`Nama: ${this.nama}, Alamat: ${this.alamat}`);
+        console.log(`Nama : ${this.nama}, Alamat: ${this.alamat}`);
+        console.log(`Kelas: ${this.kelas}`);
     }
 }
 
 // Definisi kelas turunan
 class Mahasiswa extends Orang {
-    constructor(nama, alamat, nim) {
-        super(nama, alamat); // Memanggil konstruktor kelas induk
+    constructor(nama, alamat, kelas, nim, semester) {
+        super(nama, alamat, kelas); // Memanggil konstruktor kelas induk
         this.nim = nim;
+        this.semester = semester;
     }
 
     tampilkanInformasi() {
         super.tampilkanInformasi(); // Memanggil metode dari kelas induk
-        console.log(`NIM: ${this.nim}`);
+        console.log(`NIM  : ${this.nim}`);
+        console.log(`Semester  : ${this.semester}`);
     }
 }
 
 // Penggunaan kelas turunan
-const mahasiswa1 = new Mahasiswa("Eiffen Arjen", "Jl. Akses Desa Dayeuh", "202301110037");
+const mahasiswa1 = new Mahasiswa("Eiffen Arjen", "Jl. Akses Desa Dayeuh", "IP231", "202301110037", "3 (Ganjil)");
 mahasiswa1.tampilkanInformasi();
