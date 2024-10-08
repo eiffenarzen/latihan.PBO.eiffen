@@ -1,0 +1,28 @@
+// Definisi kelas induk
+class badut {
+    tampilkanPeran() {
+        console.log("Peran: Badut");
+    }
+}
+
+// Definisi kelas turunan
+class selingkuhan extends badut {
+    tampilkanPeran() {
+        console.log("Peran: Selingkuhan");
+    }
+}
+
+class pahlawan extends badut {
+    tampilkanPeran() {
+        console.log("Peran: Pahlawan");
+    }
+}
+
+// Menggunakan polimorfisme
+const badut1 = new badut();
+const selingkuhan1 = new selingkuhan();
+const pahlawan1 = new pahlawan();
+
+badut1.tampilkanPeran()
+selingkuhan1.tampilkanPeran();
+pahlawan1.tampilkanPeran();
