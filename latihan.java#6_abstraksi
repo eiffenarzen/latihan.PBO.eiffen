@@ -1,0 +1,68 @@
+// Kelas abstrak tidak dapat diinstansiasi secara langsung
+class Kendaraan {
+    constructor(jenis) {
+        if (this.constructor === Kendaraan) {
+            throw new Error("Kelas Kendaraan adalah kelas abstrak dan tidak dapat diinstansiasi.");
+        }
+        this.jenis = jenis;
+    }
+
+    // Metode abstrak
+    bergerak() {
+        throw new Error("Metode 'bergerak()' harus diimplementasikan.");
+    }
+}
+
+// Kelas turunan yang mengimplementasikan metode abstrak
+class Motor extends Kendaraan {
+    constructor() {
+        super('Motor');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} bergerak dengan roda.`);
+    }
+}
+
+class Becak extends Kendaraan {
+    constructor() {
+        super('Becak');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} bergerak dengan roda.`);
+    }
+}
+
+class Jetski extends Kendaraan {
+    constructor() {
+        super('Jetski');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} bergerak di atas air.`);
+    }
+}
+
+class Pesawat extends Kendaraan {
+    constructor() {
+        super('Pesawat');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} bergerak di udara`);
+    }
+}
+
+// Penggunaan
+const motor = new Motor();
+motor.bergerak(); // Output: Mobil bergerak dengan roda.
+
+const becak = new Becak();
+becak.bergerak();
+
+const jetski = new Jetski();
+jetski.bergerak(); // Output: Kapal bergerak di atas air.
+
+const pesawat = new Pesawat();
+pesawat.bergerak();
