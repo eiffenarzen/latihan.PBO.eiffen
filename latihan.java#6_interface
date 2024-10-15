@@ -1,0 +1,51 @@
+// Definisi antarmuka menggunakan pola objek
+const KendaraanInterface = {
+    bergerak: function() {
+        throw new Error("Metode 'bergerak()' harus diimplementasikan.");
+    }
+};
+
+// Kelas Pesawat yang mengimplementasikan antarmuka
+class Helikopter {
+    bergerak() {
+        console.log("Helikopter terbang di udara.");
+    }
+}
+
+// Kelas Sepeda yang mengimplementasikan antarmuka
+class Sepeda {
+    bergerak() {
+        console.log("Sepeda bergerak dengan pedal.");
+    }
+}
+
+class Kereta {
+    bergerak() {
+        console.log("Kereta bergerak diatas rel.");
+    }
+}
+
+class Skateboard {
+    bergerak() {
+        console.log("Skateboard bergerak dengan roda.");
+    }
+}
+
+// Fungsi untuk memastikan bahwa objek memenuhi antarmuka
+function jalankanKendaraan(kendaraan) {
+    if (typeof kendaraan.bergerak !== "function") {
+        throw new Error("Objek tidak mengimplementasikan metode 'bergerak'.");
+    }
+    kendaraan.bergerak();
+}
+
+// Penggunaan
+const helikopter = new Helikopter();
+const sepeda = new Sepeda();
+const kereta = new Kereta();
+const skateboard = new Skateboard();
+
+jalankanKendaraan(helikopter); // Output: Pesawat terbang di udara.
+jalankanKendaraan(sepeda);  // Output: Sepeda bergerak dengan pedal.
+jalankanKendaraan(kereta);
+jalankanKendaraan(skateboard);
