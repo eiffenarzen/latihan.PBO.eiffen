@@ -1,0 +1,76 @@
+// Model Nilai
+class DataNilai {
+    constructor(dataNilai) {
+        this.dataNilai = dataNilai;
+    }
+
+    hitungRataRata() {
+        if (!Array.isArray(this.dataNilai) || this.dataNilai.length === 0) {
+            throw new Error("Data nilai tidak valid atau kosong.");
+        }
+        const total = this.dataNilai.reduce((acc, curr) => acc + curr, 0);
+        return total / this.dataNilai.length;
+    }
+}
+
+// View Nilai
+class TampilanNilai {
+    renderRataRata(rataRata) {
+        return `Rata-rata nilai: ${rataRata}`;
+    }
+
+    renderError(pesanError) {
+        return `Error: ${pesanError}`;
+    }
+}
+
+// Controller Nilai
+class PengelolaNilai {
+    constructor(Model, View) {
+        this.Model = Model;
+        this.View = View;
+    }
+
+    tampilkanRataRata(dataNilai) {
+        try {
+            const model = new this.Model(dataNilai);
+            const rataRata = model.hitungRataRata();
+            console.log(new this.View().renderRataRata(rataRata));
+        } catch (error) {
+            console.log(new this.View().renderError(error.message));
+        }
+    }
+}
+
+// Fungsi Pembagian dengan Penanganan Error
+function bagiAngka(a, b) {
+    try {
+        if (b === 0) {
+            throw new Error("Pembagian dengan nol tidak diperbolehkan.");
+        }
+        return a / b;
+    } catch (error) {
+        console.error("Terjadi error:", error.message);
+    } finally {
+        console.log("Operasi pembagian selesai.");
+    }
+}
+
+// Inisialisasi dan Penggunaan
+const pengelolaNilai = new PengelolaNilai(DataNilai, TampilanNilai);
+
+// Contoh Penggunaan tampilkanRataRata
+pengelolaNilai.tampilkanRataRata([88,95 ,99 ]);  
+// Output: Rata-rata nilai: 90
+
+pengelolaNilai.tampilkanRataRata([]); 
+// Output: Error: Data nilai tidak valid atau kosong.
+
+// Contoh Penggunaan Fungsi bagiAngka
+console.log(bagiAngka(100, 10)); 
+// Output: 5
+
+console.log(bagiAngka(10, 0)); 
+// Output: 
+// Terjadi error: Pembagian dengan nol tidak diperbolehkan.
+// Operasi pembagian selesai.
