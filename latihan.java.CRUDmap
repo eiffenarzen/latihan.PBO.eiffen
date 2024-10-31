@@ -1,0 +1,32 @@
+let mapNilai = new Map([
+    ["Budi", 90],
+    ["Siti", 85],
+]);
+
+function createInMap(map, key, value) {
+    map.set(key, value);
+    console.log("CREATE:", Array.from(map.entries()));
+}
+
+function readFromMap(map, key) {
+    const result = map.get(key);
+    console.log("READ:", result);
+    return result;
+}
+
+function updateInMap(map, key, newValue) {
+    map.set(key, newValue);
+    console.log("UPDATE:", Array.from(map.entries()));
+}
+
+function deleteFromMap(map, key) {
+    map.delete(key);
+    console.log("DELETE:", Array.from(map.entries()));
+}
+
+// Menjalankan CRUD pada Map
+console.log("=== Operasi CRUD pada Map  ===");
+createInMap(mapNilai, "Agus", 80);       // CREATE
+readFromMap(mapNilai, "Siti");           // READ
+updateInMap(mapNilai, "Budi", 95);       // UPDATE
+deleteFromMap(mapNilai, "Agus");         // DELETE
