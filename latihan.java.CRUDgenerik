@@ -1,0 +1,76 @@
+// Fungsi generik untuk mendapatkan elemen pada indeks tertentu dalam array
+function getElementAtIndex(array, index) {
+    if (!Array.isArray(array)) {
+        throw new Error("Parameter pertama harus berupa array");
+    }
+    if (typeof index !== 'number' || !Number.isInteger(index)) {
+        throw new Error("Indeks harus berupa bilangan bulat");
+    }
+    if (index >= 0 && index < array.length) {
+        return array[index];
+    }
+    throw new Error("Indeks di luar jangkauan");
+}
+
+// CRUD Functions for Array
+function createElement(array, element) {
+    if (!Array.isArray(array)) {
+        throw new Error("Parameter pertama harus berupa array");
+    }
+    array.push(element);
+    console.log("CREATE:", array);
+}
+
+function readElement(array, index) {
+    try {
+        const result = getElementAtIndex(array, index);
+        console.log("READ:", result);
+        return result;
+    } catch (error) {
+        console.error("READ Error:", error.message);
+    }
+}
+
+function updateElement(array, index, newValue) {
+    try {
+        if (index >= 0 && index < array.length) {
+            array[index] = newValue;
+            console.log("UPDATE:", array);
+        } else {
+            throw new Error("Indeks di luar jangkauan untuk update.");
+        }
+    } catch (error) {
+        console.error("UPDATE Error:", error.message);
+    }
+}
+
+function deleteElement(array, index) {
+    try {
+        if (index >= 0 && index < array.length) {
+            array.splice(index, 1);
+            console.log("DELETE:", array);
+        } else {
+            throw new Error("Indeks di luar jangkauan untuk delete.");
+        }
+    } catch (error) {
+        console.error("DELETE Error:", error.message);
+    }
+}
+
+// Contoh Penggunaan CRUD pada Array angka dan kata
+let angka = [10, 20, 30];
+let kata = ["satu", "dua", "tiga"];
+
+// Operasi CRUD pada array 'angka'
+console.log("=== Operasi CRUD pada array 'angka' ===");
+createElement(angka, 40);          // CREATE
+readElement(angka, 1);             // READ
+updateElement(angka, 2, 25);       // UPDATE
+deleteElement(angka, 3);           // DELETE
+
+// Operasi CRUD pada array 'kata'
+console.log("=== Operasi CRUD pada array 'kata' ===");
+createElement(kata, "empat");      // CREATE
+readElement(kata, 0);              // READ
+updateElement(kata, 1, "dua belas"); // UPDATE
+deleteElement(kata, 2);            // DELETE
