@@ -1,0 +1,32 @@
+let setMahasiswa = new Set(["Budi", "Siti", "Agus"]);
+
+function createInSet(set, element) {
+    set.add(element);
+    console.log("CREATE:", Array.from(set));
+}
+
+function readFromSet(set, element) {
+    const result = set.has(element);
+    console.log("READ:", result);
+    return result;
+}
+
+function updateInSet(set, oldElement, newElement) {
+    if (set.has(oldElement)) {
+        set.delete(oldElement);
+        set.add(newElement);
+    }
+    console.log("UPDATE:", Array.from(set));
+}
+
+function deleteFromSet(set, element) {
+    set.delete(element);
+    console.log("DELETE:", Array.from(set));
+}
+
+// Menjalankan CRUD pada Set
+console.log("=== Operasi CRUD pada Set  ===");
+createInSet(setMahasiswa, "Ani");          // CREATE
+readFromSet(setMahasiswa, "Siti");         // READ
+updateInSet(setMahasiswa, "Budi", "Ayu");  // UPDATE
+deleteFromSet(setMahasiswa, "Agus");       // DELETE
