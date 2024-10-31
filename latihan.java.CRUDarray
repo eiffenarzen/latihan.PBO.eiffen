@@ -1,0 +1,30 @@
+let listMahasiswa = ["Budi", "Siti", "Agus"];
+
+function createInArray(array, element) {
+    array.push(element);
+    console.log("CREATE:", array);
+}
+
+function readFromArray(array, index) {
+    const result = array[index];
+    console.log("READ:", result);
+    return result;
+}
+
+function updateInArray(array, index, newValue) {
+    array[index] = newValue;
+    console.log("UPDATE:", array);
+}
+
+function deleteFromArray(array, index) {
+    array.splice(index, 1);
+    console.log("DELETE:", array);
+}
+
+// Menjalankan CRUD pada Array
+console.log("=== Operasi CRUD pada array  ===");
+
+createInArray(listMahasiswa, "Ani");    // CREATE
+readFromArray(listMahasiswa, 1);        // READ
+updateInArray(listMahasiswa, 0, "Ayu"); // UPDATE
+deleteFromArray(listMahasiswa, 2);      // DELETE
